@@ -2,9 +2,9 @@
   <div id="main">
     <img alt="Vue logo" src="./assets/logo.png">
     <h1>{{title}}</h1>
-    <button @click="addNumber()">+</button>
-    <h3>{{number1}}</h3>
-    <button @click="removeNumber()">-</button>
+    <button @click="changeNumber('plus')">+</button>
+    <h3>{{number}}</h3>
+    <button @click="changeNumber('minus')">-</button>
   </div>
 </template>
 
@@ -14,8 +14,7 @@ export default {
   data() {
     return {
       title: 'VUE OBUKA',
-      number1: 0,
-      number2: 0
+      number: 0
 
     }
   },
@@ -25,6 +24,17 @@ export default {
     },
     removeNumber(){
       this.number1 = this.number1 - 1
+    },
+    changeNumber(operation){
+      if (operation == 'plus') {
+        this.number++;
+      } else if(operation == 'minus') {
+        this.number--;
+      }
+      console.log(this.number)
+
+      this.title = this.title + ' ' + this.number
+
     }
   },
 }
