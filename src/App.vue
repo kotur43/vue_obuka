@@ -2,16 +2,9 @@
   <div id="main">
     <img alt="Vue logo" src="./assets/logo.png">
     <h1>{{title}}</h1>
-    <!-- CTRL + / <button @click="title = 'DRUGI NAZIV'">Changle Title</button> -->
-    <p>Number = Number + 1</p>
-    <button @click="number1 = number1 + '1'">+</button>
+    <button @click="addNumber()">+</button>
     <h3>{{number1}}</h3>
-    <button @click="number1 = number1 - 1">-</button>
-    <br>
-    <p>Number ++</p>
-    <button @click="number2++">+</button>
-    <h3>{{number2}}</h3>
-    <button @click="number2--">-</button>
+    <button @click="removeNumber()">-</button>
   </div>
 </template>
 
@@ -22,8 +15,16 @@ export default {
     return {
       title: 'VUE OBUKA',
       number1: 0,
-      number2: '0'
+      number2: 0
 
+    }
+  },
+  methods: {
+    addNumber(){
+      this.number1 = this.number1 + 1
+    },
+    removeNumber(){
+      this.number1 = this.number1 - 1
     }
   },
 }
